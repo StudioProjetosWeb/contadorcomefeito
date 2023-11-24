@@ -1,7 +1,3 @@
-const daysContainer = document.getElementById('days-container');
-const hoursContainer = document.getElementById('hours-container');
-const minutesContainer = document.getElementById('minutes-container');
-const secondsContainer = document.getElementById('seconds-container');
 const daysSpan = document.getElementById('days');
 const hoursSpan = document.getElementById('hours');
 const minutesSpan = document.getElementById('minutes');
@@ -21,17 +17,10 @@ function updateCountdown() {
         return;
     }
 
-    updateElement(daysContainer, daysSpan, Math.floor(distance / (1000 * 60 * 60 * 24)), "Dias");
-    updateElement(hoursContainer, hoursSpan, Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60)), "Horas");
-    updateElement(minutesContainer, minutesSpan, Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60)), "Minutos");
-    updateElement(secondsContainer, secondsSpan, Math.floor((distance % (1000 * 60)) / 1000), "Segundos");
-}
-
-function updateElement(container, element, value, label) {
-    element.textContent = value;
-    if (value <= 0) {
-        container.style.display = 'none';
-    }
+    daysSpan.textContent = Math.floor(distance / (1000 * 60 * 60 * 24));
+    hoursSpan.textContent = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+    minutesSpan.textContent = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+    secondsSpan.textContent = Math.floor((distance % (1000 * 60)) / 1000);
 }
 
 const interval = setInterval(updateCountdown, 1000);
