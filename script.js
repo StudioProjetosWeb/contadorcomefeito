@@ -30,11 +30,9 @@ afterCountdownButton.addEventListener('click', function() {
 });
 
 // Efeito de Confetes
-window.addEventListener('load', createConfetti);
-
 function createConfetti() {
     const confettiCount = 100;
-    const colors = ['#f2d74e', '#e91e63', '#9c27b0', '#673ab7', '#3f51b5']; // Cores dos confetes
+    const colors = ['#f2d74e', '#e91e63', '#9c27b0', '#673ab7', '#3f51b5'];
 
     for (let i = 0; i < confettiCount; i++) {
         const confetti = document.createElement('div');
@@ -45,6 +43,8 @@ function createConfetti() {
         document.body.appendChild(confetti);
     }
 }
+
+window.addEventListener('load', createConfetti);
 
 // Adicionando a animação de queda dos confetes
 document.styleSheets[0].insertRule(`
