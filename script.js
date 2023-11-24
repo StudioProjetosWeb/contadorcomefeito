@@ -15,7 +15,7 @@ function updateCountdown() {
     const distance = targetDate - now;
 
     if (distance < 0) {
-        countdown.style.display = 'none';
+        document.querySelector('.countdown-container').style.display = 'none';
         afterCountdownButton.style.display = 'block';
         clearInterval(interval);
         return;
@@ -28,10 +28,8 @@ function updateCountdown() {
 }
 
 function updateElement(container, element, value, label) {
-    if (value > 0) {
-        element.textContent = value;
-        container.style.display = 'inline-block';
-    } else {
+    element.textContent = value;
+    if (value <= 0) {
         container.style.display = 'none';
     }
 }
@@ -43,6 +41,26 @@ afterCountdownButton.addEventListener('click', function() {
 });
 
 // Efeito de Confetes
-function createConfetti() {
-   
+window.addEventListener('load', createConfetti);
 
+function createConfetti() {
+    const confettiCount = 100;
+    const colors = ['#f2d74e', '#e91e63', '#9c27b0', '#673ab7', '#3f51b5']; // Cores dos confetes
+
+    for (let i = 0; i < confettiCount; i++) {
+        const confetti = document.createElement('div');
+        confetti.classList.add('confetti');
+        confetti.style.backgroundColor = colors[Math.floor(Math.random() * colors.length)];
+        confetti.style.left = `${Math.random() * 100}vw`;
+        confetti.style.animation = `confetti-fall ${Math.random() * 3 + 2}s linear ${Math.random() * 3}s infinite`;
+        document.body.appendChild(confetti);
+    }
+}
+
+// Adicionando a animação de queda dos confetes
+document.styleSheets[0].insertRule(`
+    @keyframes confetti-fall {
+        0% { transform: translateY(-100vh) rotate(0deg); }
+        100% { transform: translateY(100vh) rotate(720deg); }
+    }
+`, document.styleSheets[0].cssRules.length);
