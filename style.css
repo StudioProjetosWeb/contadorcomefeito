@@ -11,17 +11,20 @@ body {
 }
 
 .countdown-container {
-    text-align: center;
+    display: flex;
+    justify-content: center;
 }
 
-.countdown-element {
-    display: inline-block;
+.time-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
     margin: 0 15px;
 }
 
 .time {
-    display: block;
     font-size: 3em;
+    margin-bottom: 5px;
 }
 
 .label {
