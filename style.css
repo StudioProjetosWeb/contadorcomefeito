@@ -14,17 +14,14 @@ body {
     text-align: center;
 }
 
-.countdown-element {
+.time {
     display: inline-block;
     margin: 0 15px;
-}
-
-.time {
-    display: block;
     font-size: 3em;
 }
 
 .label {
+    display: block;
     font-size: 1em;
 }
 
@@ -43,4 +40,3 @@ body {
     z-index: 1000;
     transition: transform 0.7s ease-in;
 }
-
